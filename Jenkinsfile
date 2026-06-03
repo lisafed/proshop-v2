@@ -61,6 +61,9 @@ pipeline {
             steps {
                 script {
                     echo "===== Arret des anciens conteneurs ====="
+                    sh '''
+                docker rm -f node-exporter prometheus mongo backend frontend grafana 2>/dev/null || true
+            '''
                     sh "docker compose down --volumes --remove-orphans"
                 }
             }
