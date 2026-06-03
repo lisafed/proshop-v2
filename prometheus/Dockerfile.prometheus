@@ -1,0 +1,4 @@
+FROM prom/prometheus:latest
+
+# On indique le chemin relatif exact par rapport à la racine du projet
+COPY prometheus/prometheus.yml /etc/prometheus/prometheus.yml
