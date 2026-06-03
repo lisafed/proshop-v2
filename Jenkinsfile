@@ -100,7 +100,12 @@ EOF
         stage('Deploy') {
             steps {
                 echo "===== Deploiement ====="
-                sh "docker compose up -d --force-recreate --build"
+                sh "docker compose up -d mongo"
+                sh "docker compose up -d prometheus"
+                sh "docker compose up -d node-exporter"
+                sh "docker compose up -d grafana"
+                sh "docker compose up -d backend"
+                sh "docker compose up -d frontend"
                 echo "Attente du démarrage des services..."
                 sleep 15
             }
